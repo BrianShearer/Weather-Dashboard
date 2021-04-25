@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">   
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Weather-Dashboard</title>
+</head>
+<body>
+    <Header>
+        <section class="hero">
+            <div class="hero-body has-background-grey-light">
+              <p class="title">
+                Weather-Dashboard
+              </p>
+              <p class="subtitle">
+                Hero subtitle
+              </p>
+            </div>
+          </section>
+    </Header>
+    <!-- panel from Bulma -->
+    <div class="columns">
+      <div class="column is-one-quarter">
+         <nav class="panel">
+        <p class="panel-heading">
+          Search for a City:
+        </p>
+        <div class="panel-block">
+          <p class="control has-icons-left">
+            <input class="input" type="text" id="city-name" placeholder="Search">
+            <input type="submit" id="submit-btn">
+            <span class="icon is-left">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </span>
+          </p>
+        </div>
+              
+        
+        
+        </nav>
+        
+     </div>
+     <div class="column has-background-white-bis" id="city-border"> 
+      <h1>hello</h1>
+      <div id="weather-card" ></div>
+    </div>
+    </div>
+    
+    
+
+    <script src="./assets/script/script.js"></script>      
+    
+</body>
+</html>
