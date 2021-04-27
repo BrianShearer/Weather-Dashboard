@@ -14,15 +14,16 @@
         <section class="hero">
             <div class="hero-body has-background-grey-light">
               <p class="title">
-                Weather-Dashboard
+                Weather Dashboard
               </p>
               <p class="subtitle">
-                Hero subtitle
+                
               </p>
             </div>
           </section>
     </Header>
     <!-- panel from Bulma -->
+    <section class="section">
     <div class="columns">
       <div class="column is-one-quarter">
          <nav class="panel">
@@ -33,6 +34,7 @@
           <p class="control has-icons-left">
             <input class="input" type="text" id="city-name" placeholder="Search">
             <input type="submit" id="submit-btn">
+            <!-- <button type="button" id="submit-btn"></button> -->
             <span class="icon is-left">
               <i class="fas fa-search" aria-hidden="true"></i>
             </span>
@@ -44,11 +46,47 @@
         </nav>
         
      </div>
-     <div class="column has-background-white-bis" id="city-border"> 
-      <h1>hello</h1>
-      <div id="weather-card" ></div>
+        <div class="column is-three-quarters has-background-white-bis"> 
+      
+          <div id="weather-card" ></div>
+      </div>
+  </div>
+    </section>
+   <div class="columns is-mobile has-background-grey-light">
+        <div class="column is-8 is-offset-4">
+          
+          <div class="columns">
+            <div class="column">
+              
+              <div class="columns is-mobile">
+                <h1>Five Day Forecast:</h1>
+                <div class="column">
+                  <!-- <input class="input" type="text" id="city-forecast" placeholder="Search">
+               <input type="submit" id="submit-btn2">
+               <span class="icon is-left">
+                <i class="fas fa-search" aria-hidden="true"></i>
+               </span> -->
+                  <p class="bd-notification is-info" id="first-day">First day</p>
+                </div>
+                <div class="column">
+                  <p class="bd-notification is-info">Second day</p>
+                </div>
+                <div class="column">
+                  <p class="bd-notification is-info">third nested day</p>
+                </div>
+                <div class="column">
+                  <p class="bd-notification is-info">forth nested day</p>
+                </div>
+                <div class="column">
+                  <p class="bd-notification is-info">fith nested day</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
     </div>
-    </div>
+  </div>
     
     
 

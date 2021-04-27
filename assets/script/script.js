@@ -1,10 +1,10 @@
 
 
 var cityInputEl = document.querySelector("#city-name");
-var submitbtn = document.querySelector("#submit-btn")
+var submitbtn = document.getElementById("submit-btn")
 
 
-
+// "http://api.openweathermap.org/data/2.5/weather?q="+searchCity+"&APPID=a84acfeca58c314cd811a6eeefed64ff"
 
 
 
@@ -12,7 +12,7 @@ var submitbtn = document.querySelector("#submit-btn")
 var getWeatherApi = function() {
   var searchCity = cityInputEl.value
   // call function for button to place city in list
-    fetch("http://api.openweathermap.org/data/2.5/weather?q="+searchCity+"&APPID=a84acfeca58c314cd811a6eeefed64ff").then(function(response) {
+    fetch("https://api.openweathermap.org/data/2.5/weather?q="+searchCity+"&units=imperial&APPID=a84acfeca58c314cd811a6eeefed64ff").then(function(response) {
   response.json().then(function(data) {
     console.log(data);
     generateWeatherCard(data)
@@ -27,23 +27,86 @@ var getWeatherApi = function() {
     console.log(event);
   };
 
-  submitbtn.addEventListener("click", getWeatherApi);
+  // submitbtn.addEventListener("click", getWeatherApi);
+  // submitbtn.addEventListener("click", getForecastApi);
+  
 
 function generateWeatherCard(data) {
   var weatherCard = document.querySelector("#weather-card")
   
   weatherCard.classList.add("#weather-card")
-  var cityName = document.createElement("h2");
+  var cityName = document.createElement("h1");
   cityName.textContent = data.name;
   weatherCard.append(cityName)
-  // var temp = document.createElement("h3");
-  // temp.textContent = "current; "+data.main.temp;
-  // weatherCard.append(temp);
+  var temp = document.createElement("h3");
+  temp.textContent = "Temp: "+data.main.temp;
+  weatherCard.append(temp);
+  var wind = document.createElement("h3");
+  wind.textContent = "Wind: "+data.wind.speed;
+  weatherCard.append(wind);
+  var humidity = document.createElement("h3");
+  humidity.textContent = "Humidity: "+data.main.humidity;
+  weatherCard.append(humidity);
 
 
 }
 
+var cityInputE2 = document.querySelector("#city-forecast");
+// var submitbtn2 = document.querySelector("#submit-btn2")
+
+
+var getForecastApi = function() {
+  var searchCity = cityInputE2.value
+  // call function for button to place city in list
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q="+searchCity+"&units=imperial&APPID=a84acfeca58c314cd811a6eeefed64ff").then(function(response) {
+  response.json().then(function(data) {
+    console.log(data);
+    generateForecastCard(data)
+  });
+});
+  };
+
+  // submitbtn.addEventListener("click", getForecastApi);
+
+  function generateForecastCard(data) {
+    var forecastCard = document.querySelector("#first-day")    
+    forecastCard.classList.add("#first-day")
+    var cityName = document.createElement("h1");
+    cityName.textContent = data.list[0].dt_txt;
+    forecastCard.append(cityName)
+    var temp = document.createElement("h3");
+  temp.textContent = "Temp: "+data.list[0].main.temp;
+ forecastCard.append(temp);
+  var wind = document.createElement("h3");
+  wind.textContent = "Wind: "+data.list[0].wind.speed;
+ forecastCard.append(wind);
+  var humidity = document.createElement("h3");
+  humidity.textContent = "Humidity: "+data.list[0].main.humidity;
+ forecastCard.append(humidity);
+    
 // function cityList() {
 //   var newbtn = 
 // }
-  
+  }
+
+  submitbtn.addEventListener("click", getWeatherApi);
+  submitbtn.addEventListener("click", getForecastApi);
+
+  // possible multifetch with one button
+
+  Promise.all([
+    fetch('https://jsonplaceholder.typicode.com/posts'),
+    fetch('https://jsonplaceholder.typicode.com/users')
+  ]).then(function (responses) {
+    // Get a JSON object from each of the responses
+    return Promise.all(responses.map(function (response) {
+      return response.json();
+    }));
+  }).then(function (data) {
+    // Log the data to the console
+    // You would do something with both sets of data here
+    console.log(data);
+  }).catch(function (error) {
+    // if there's an error, log it
+    console.log(error);
+  });
