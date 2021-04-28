@@ -3,7 +3,10 @@
 var cityInputEl = document.querySelector("#city-name");
 var submitbtn = document.querySelector(".submit-btn")
 
-
+var d = moment().format("MMM Do YYYY") 
+// d.setAttribute(".is-size-4")      
+      
+       document.getElementById("currentDay").innerHTML = d;
 // "http://api.openweathermap.org/data/2.5/weather?q="+searchCity+"&APPID=a84acfeca58c314cd811a6eeefed64ff"
 
 
@@ -72,24 +75,86 @@ var getForecastApi = function(searchCity) {
   function generateForecastCard(data) {
     
 
- for(var i = 0; i < data.list.length; i+=8){
+//  for (var i = 0; i < data.list.length; i+=8){
 
+
+  
   var forecastCard = document.querySelector("#first-day")    
     forecastCard.classList.add("#first-day")
     var cityName = document.createElement("h1");
-    cityName.textContent = data.list[i].dt_txt;
+    cityName.textContent = data.list[0].dt_txt;
     forecastCard.append(cityName)
     var temp = document.createElement("h3");
-  temp.textContent = "Temp: "+data.list[i].main.temp;
+  temp.textContent = "Temp: "+data.list[0].main.temp;
  forecastCard.append(temp);
   var wind = document.createElement("h3");
-  wind.textContent = "Wind: "+data.list[i].wind.speed;
+  wind.textContent = "Wind: "+data.list[0].wind.speed;
  forecastCard.append(wind);
   var humidity = document.createElement("h3");
-  humidity.textContent = "Humidity: "+data.list[i].main.humidity;
+  humidity.textContent = "Humidity: "+data.list[0].main.humidity;
  forecastCard.append(humidity);
- }
-    
+ 
+ var forecastCard = document.querySelector("#second-day")    
+ forecastCard.classList.add("#second-day")
+ var cityName = document.createElement("h1");
+ cityName.textContent = data.list[8].dt_txt;
+ forecastCard.append(cityName)
+ var temp = document.createElement("h3");
+temp.textContent = "Temp: "+data.list[8].main.temp;
+forecastCard.append(temp);
+var wind = document.createElement("h3");
+wind.textContent = "Wind: "+data.list[8].wind.speed;
+forecastCard.append(wind);
+var humidity = document.createElement("h3");
+humidity.textContent = "Humidity: "+data.list[8].main.humidity;
+forecastCard.append(humidity);
+ 
+var forecastCard = document.querySelector("#third-day")    
+    forecastCard.classList.add("#third-day")
+    var cityName = document.createElement("h1");
+    cityName.textContent = data.list[16].dt_txt;
+    forecastCard.append(cityName)
+    var temp = document.createElement("h3");
+  temp.textContent = "Temp: "+data.list[16].main.temp;
+ forecastCard.append(temp);
+  var wind = document.createElement("h3");
+  wind.textContent = "Wind: "+data.list[16].wind.speed;
+ forecastCard.append(wind);
+  var humidity = document.createElement("h3");
+  humidity.textContent = "Humidity: "+data.list[16].main.humidity;
+ forecastCard.append(humidity);
+  
+ var forecastCard = document.querySelector("#forth-day")    
+ forecastCard.classList.add("#forth-day")
+ var cityName = document.createElement("h1");
+ cityName.textContent = data.list[24].dt_txt;
+ forecastCard.append(cityName)
+ var temp = document.createElement("h3");
+temp.textContent = "Temp: "+data.list[24].main.temp;
+forecastCard.append(temp);
+var wind = document.createElement("h3");
+wind.textContent = "Wind: "+data.list[24].wind.speed;
+forecastCard.append(wind);
+var humidity = document.createElement("h3");
+humidity.textContent = "Humidity: "+data.list[24].main.humidity;
+forecastCard.append(humidity);
+
+var forecastCard = document.querySelector("#fifth-day")    
+    forecastCard.classList.add("#fifth-day")
+    var cityName = document.createElement("h1");
+    cityName.textContent = data.list[32].dt_txt;
+    forecastCard.append(cityName)
+    var temp = document.createElement("h3");
+  temp.textContent = "Temp: "+data.list[32].main.temp;
+ forecastCard.append(temp);
+  var wind = document.createElement("h3");
+  wind.textContent = "Wind: "+data.list[32].wind.speed;
+ forecastCard.append(wind);
+  var humidity = document.createElement("h3");
+  humidity.textContent = "Humidity: "+data.list[32].main.humidity;
+ forecastCard.append(humidity);
+
+  
 
   }
   // var searchCity = cityInputEl.value

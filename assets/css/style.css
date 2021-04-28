@@ -1,9 +1,13 @@
 .title {
     text-align: center;
-    font-size: 80px;
+    font-size: 40px;
 }
 
 /* #city-border {
     border: 2px;
     border-color: black;
 } */
+
+.bd-notification is-info {
+    font-size: 20px;
+}
