@@ -2,14 +2,18 @@
 
 var cityInputEl = document.querySelector("#city-name");
 var submitbtn = document.querySelector(".submit-btn")
+var city = [];
 
 var d = moment().format("MMM Do YYYY") 
-// d.setAttribute(".is-size-4")      
+// d.setAttribute("heading h4")      
       
        document.getElementById("currentDay").innerHTML = d;
 // "http://api.openweathermap.org/data/2.5/weather?q="+searchCity+"&APPID=a84acfeca58c314cd811a6eeefed64ff"
 
 
+var saveCity = function() {
+  localStorage.setItem("city", JSON.stringify(city));
+}
 
 
 var getWeatherApi = function() {
@@ -20,6 +24,8 @@ var getWeatherApi = function() {
     console.log(data);
     generateWeatherCard(data)
     getForecastApi(searchCity)
+    saveCity()
+
   });
 });
   };
@@ -154,30 +160,10 @@ var forecastCard = document.querySelector("#fifth-day")
   humidity.textContent = "Humidity: "+data.list[32].main.humidity;
  forecastCard.append(humidity);
 
-  
+  saveCity()
 
   }
-  // var searchCity = cityInputEl.value
+  
   submitbtn.addEventListener("click", getWeatherApi);
-  // submitbtn.addEventListener("click", getForecastApi);
-
-  // possible multifetch with one button
-
-  // Promise.all([
-  //   fetch("https://api.openweathermap.org/data/2.5/weather?q="+searchCity+"&units=imperial&APPID=a84acfeca58c314cd811a6eeefed64ff"),
-  //   fetch("https://api.openweathermap.org/data/2.5/forecast?q="+searchCity+"&units=imperial&APPID=a84acfeca58c314cd811a6eeefed64ff")
-  // ]).then(function (responses) {
-  //   // Get a JSON object from each of the responses
-  //   return Promise.all(responses.map(function (response) {
-  //     return response.json();
-  //   }));
-  // }).then(function (data) {
-  //   // Log the data to the console
-  //   // You would do something with both sets of data here
-  //   console.log(data);
-  // }).catch(function (error) {
-  //   // if there's an error, log it
-  //   console.log(error);
-  // });
-
+  
   
