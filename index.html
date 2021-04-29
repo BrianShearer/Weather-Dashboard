@@ -14,8 +14,8 @@
 </head>
 <body>
     <Header>
-        <section class="row teal lighten-2">
-            <div class="colm12">
+        <section class="hero">
+            <div class="hero-body has-background-grey-light">
               <p class="title">
                 Weather Dashboard
               </p>
@@ -26,15 +26,15 @@
           </section>
     </Header>
     <!-- panel from Bulma -->
-    <section class="">
-    <div class="">
-      <div class="">
-         <nav class="">
-        <p class="">
+    <section class="section">
+    <div class="columns">
+      <div class="column is-one-quarter">
+         <nav class="panel">
+        <p class="panel-heading">
           Search for a City:
         </p>
-        <div class="">
-          <p class="">
+        <div class="panel-block">
+          <p class="control has-icons-left">
             <input class="input" type="text" id="city-name" placeholder="Search">
             <input type="submit" class="submit-btn">
             <!-- <button type="button" id="submit-btn"></button> -->
@@ -49,7 +49,7 @@
         </nav>
         
      </div>
-        <div class=""> 
+        <div class="columns"> 
       <div column is-mobile>
         <div class="" id="currentDay"></div>
           <div class="" id="weather-card" ></div>
